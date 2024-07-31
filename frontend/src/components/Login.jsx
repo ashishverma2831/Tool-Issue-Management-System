@@ -1,11 +1,14 @@
 import { useFormik } from 'formik'
-import React from 'react'
+import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { enqueueSnackbar } from 'notistack';
 import useAppContext from '../AppContext'
+import UserNavbar from './UserNavbar';
+import UserFooter from './UserFooter';
 
 const Login = () => {
 
+    const [passwordHidden, setPasswordHidden] = useState(true);
     const {currentUser,setCurrentUser,loggedIn,setLoggedIn,logout} = useAppContext();
     const navigate = useNavigate();
     const loginForm = useFormik({
@@ -43,18 +46,31 @@ const Login = () => {
 
     return (
         <>
+        <UserNavbar />
             <section className='w-full h-screen mx-auto bg-red-500 flex justify-center items-center'>
                 <div className=' flex flex-col gap-4 bg-blue-200 max-w-screen-xl p-10 shadow-xl rounded'>
                     <h1 className='text-3xl font-bold text-center'>Login</h1>
                     <form className='w-[360px]' onSubmit={loginForm.handleSubmit}>
                         <div className='w-full flex flex-col gap-1 mb-4'>
                             <label htmlFor='name'>Name</label>
-                            <input onChange={loginForm.handleChange} value={loginForm.values.name} className='p-2 outline-none border-none rounded' type='text' id='name' />
+                            <input placeholder='Enter your name' onChange={loginForm.handleChange} value={loginForm.values.name} className='p-2 outline-none border-none rounded' type='text' id='name' />
                         </div>
-                        <div className='w-full flex flex-col gap-1  mb-8'>
+                        {/* <div className='w-full flex flex-col gap-1  mb-8'>
                             <label htmlFor='password'>Password</label>
                             <input onChange={loginForm.handleChange} value={loginForm.values.password} className='p-2 outline-none border-none rounded' type='password' id='password' />
-                        </div>
+                        </div> */}
+                        <div className='relative flex'>
+                                <input
+                                    type={passwordHidden ? 'password' : 'text'}
+                                    name="password"
+                                    id="password"
+                                    placeholder="Enter your password"
+                                    className='p-2 w-full outline-none border-none rounded '
+                                    onChange={loginForm.handleChange}
+                                    value={loginForm.values.password}
+                                />
+                                <button type='button' className='absolute top-2 right-2' onClick={() => { setPasswordHidden(!passwordHidden) }}>{passwordHidden ? <i className="fa-solid fa-eye"></i> : <i className="fa-regular fa-eye"></i>}</button>
+                            </div>
                         {/* <div className='w-full flex flex-col gap-1'>
                     <label>Picture</label>
                     <input type='file' />
@@ -63,8 +79,10 @@ const Login = () => {
                             <button className='shadow-xl text-center w-full bg-red-600  py-3 rounded hover:bg-red-400 text-white text-xl ' type='submit'>Register</button>
                         </div>
                     </form>
+                    <p>Don't have an account...? <Link className='text-purple-900' to={'/signup'}>Create account</Link></p>
                 </div>
             </section>
+            <UserFooter />
         </>
     )
 }

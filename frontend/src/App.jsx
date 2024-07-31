@@ -9,6 +9,7 @@ import { SnackbarProvider } from 'notistack'
 import { AppProvider } from './AppContext'
 import AddTool from './admin/AddTool'
 import AdminToolList from './admin/AdminToolList'
+import IssueRegister from './pages/IssueRegister'
 
 const App = () => {
 
@@ -18,13 +19,14 @@ const App = () => {
         <BrowserRouter>
           <AppProvider>
             <Routes>
-              <Route path="/" element={<Signup />} />
+              <Route path="/signup" element={<Signup />} />
               <Route path="/login" element={<Login />} />
-              <Route path="/home" element={<Home />} />
+              <Route path="/" element={<Home />} />
               <Route path="/admin" element={<AdminLogin />} />
               <Route path="/admin-home" element={<AdminHome />} />
               <Route path="/add-tool" element={<AddTool />} />
               <Route path="/tool-list" element={<AdminToolList />} />
+              <Route path="/register-issue" element={<IssueRegister />} />
             </Routes>
           </AppProvider>
         </BrowserRouter>

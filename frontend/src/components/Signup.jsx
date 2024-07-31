@@ -3,6 +3,8 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import { enqueueSnackbar } from 'notistack'
+import UserNavbar from './UserNavbar'
+import UserFooter from './UserFooter'
 
 
 const registerSchema = Yup.object().shape({
@@ -53,7 +55,8 @@ const Signup = () => {
     })
 
     return (
-        <>
+        <>  
+        <UserNavbar />
             <section className='w-full py-10 mx-auto bg-red-500 flex justify-center items-center'>
                 <div className='my-8 flex flex-col gap-4 bg-blue-200 max-w-screen-xl p-10 shadow-xl rounded'>
                     <h1 className='text-3xl font-bold text-center'>Registration</h1>
@@ -131,6 +134,7 @@ const Signup = () => {
                     <p>Already Registered...? <Link className='text-purple-900' to={'/login'}>click here to login</Link></p>
                 </div>
             </section>
+            <UserFooter />
         </>
     )
 }
