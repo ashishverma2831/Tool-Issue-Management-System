@@ -13,7 +13,7 @@ const registerSchema = Yup.object().shape({
     mobile: Yup.string().required('Mobile number is required').min(10, 'Mobile number must be 10 digits').max(10, 'Mobile number must be 10 digits'),
     password: Yup.string().required('Password is required').min(8, 'Password must be atleast 8 characters')
     // .matches(/[a-zA-Z]\d/, 'password must include uppercase and lowercase letter')
-    ,selectedRole: Yup.string().required('Role is required')
+    , selectedRole: Yup.string().required('Role is required')
 })
 
 const Signup = () => {
@@ -26,9 +26,10 @@ const Signup = () => {
             email: '',
             mobile: '',
             password: '',
-            selectedRole: ''
+            selectedRole: '',
+            image: ''
         },
-        onSubmit: async (values,{setSubmitting,resetForm}) => {
+        onSubmit: async (values, { setSubmitting, resetForm }) => {
             console.log(values);
             setSubmitting(true);
             const response = await fetch('http://localhost:3000/user/created', {
@@ -41,27 +42,27 @@ const Signup = () => {
             console.log(response.status);
             setSubmitting(false);
 
-            if(response.status === 200){
-                enqueueSnackbar('Registration Successful',{variant:'success'})
+            if (response.status === 200) {
+                enqueueSnackbar('Registration Successful', { variant: 'success' })
                 resetForm();
                 navigate('/login');
             }
-            else if(response.status === 400){
-                enqueueSnackbar('Email already exists',{variant:'error'})
+            else if (response.status === 400) {
+                enqueueSnackbar('Email already exists', { variant: 'error' })
             }
-            else if(response.status === 401){
-                enqueueSnackbar('Mobile Number already exists',{variant:'error'})
+            else if (response.status === 401) {
+                enqueueSnackbar('Mobile Number already exists', { variant: 'error' })
             }
-            else{
-                enqueueSnackbar('Registration Failed',{variant:'error'})
+            else {
+                enqueueSnackbar('Registration Failed', { variant: 'error' })
             }
         },
         validationSchema: registerSchema
     })
 
     return (
-        <>  
-        <UserNavbar />
+        <>
+            <UserNavbar />
             <section className='w-full py-10 mx-auto bg-red-500 flex justify-center items-center'>
                 <div className='my-8 flex flex-col gap-4 bg-blue-200 max-w-screen-xl p-10 shadow-xl rounded'>
                     <h1 className='text-3xl font-bold text-center'>Registration</h1>
@@ -106,7 +107,7 @@ const Signup = () => {
                             </select>
                             <span className='text-sm text-red-600'>{registerForm.touched.selectedRole && registerForm.errors.selectedRole}</span>
                         </div>
-                        <div className='w-full flex flex-col gap-1  mb-8'>
+                        <div className='w-full flex flex-col gap-1  mb-4'>
                             <label htmlFor='password'>Password</label>
                             {/* <input 
                     id='password'
@@ -128,10 +129,10 @@ const Signup = () => {
                             </div>
                             <span className='text-sm text-red-600'>{registerForm.touched.password && registerForm.errors.password}</span>
                         </div>
-                        {/* <div className='w-full flex flex-col gap-1'>
-                    <label>Picture</label>
-                    <input type='file' />
-                </div> */}
+                        <div className='w-full flex flex-col gap-1'>
+                            <label>Picture</label>
+                            <input className='p-2 w-full bg-white outline-none border-none rounded ' type='file' />
+                        </div>
                         <div className='w-full flex mt-4'>
                             <button className='text-center shadow-xl w-full bg-red-600  py-3 rounded hover:bg-red-400 text-white text-xl ' type='submit'>Register</button>
                         </div>

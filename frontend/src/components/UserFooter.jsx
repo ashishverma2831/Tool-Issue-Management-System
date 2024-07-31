@@ -4,7 +4,7 @@ import { Link, NavLink } from 'react-router-dom'
 const UserFooter = () => {
   return (
     <>
-        <footer>
+        <footer className='mt-8'>
         <div className='max-w-screen-xl mx-auto'>
           <div className=' flex justify-around border-b gap-8 md:flex-nowrap flex-wrap pb-4'>
             <div className='p-4 md:w-1/3 w-full'>
