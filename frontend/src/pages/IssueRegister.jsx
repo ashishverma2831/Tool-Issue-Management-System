@@ -1,5 +1,7 @@
 import { useFormik } from 'formik'
+import { enqueueSnackbar } from 'notistack'
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import * as Yup from 'yup'
 
 const issueSchema = Yup.object().shape({
@@ -10,14 +12,33 @@ const issueSchema = Yup.object().shape({
 
 const IssueRegister = () => {
 
+    const navigate = useNavigate();
     const registerIssue = useFormik({
         initialValues: {
             name: '',
             email: '',
             issue: ''
         },
-        onSubmit: async (values) => {
-            console.log(values)
+        onSubmit: async (values,{setSubmitting,resetForm}) => {
+            console.log(values);
+            setSubmitting(true);
+            const response = await fetch('http://localhost:3000/user/register-issue',{
+                method:'POST',
+                headers:{
+                    'Content-Type':'application/json'
+                },
+                body:JSON.stringify(values)
+            })
+
+            setSubmitting(false);
+            if(response.status === 200){
+                enqueueSnackbar('Issue registered successfully',{variant:'success'})
+                resetForm();
+                navigate('/register-issue');
+            }
+            else{
+                enqueueSnackbar('Issue registration failed',{variant:'error'})
+            }
         },
         validationSchema:issueSchema
     })
