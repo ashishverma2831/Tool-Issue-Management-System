@@ -9,7 +9,7 @@ const UserNavbar = () => {
                 <div className='text-white font-semibold text-xl'> <Link to={'/'} >Tool Issue Management System</Link> </div>
                 <div className='hidden md:block'>
                     <ul className='flex gap-5 '>
-                        <li className='text-white hover:text-gray-300'><Link to={'/register-issue'}>Issues</Link></li>
+                        <li className='text-white hover:text-gray-300'><Link to={'/register-issue'}>Register Issue</Link></li>
                         <li className='text-white hover:text-gray-300'><Link to={'/signup'}>Sign Up</Link></li>
                         <li className='text-white hover:text-gray-300'><Link to={'/login'}>Login</Link></li>
                     </ul>
@@ -22,7 +22,7 @@ const UserNavbar = () => {
                 <div className={sidebar ? 'absolute bg-gray-800 left-0 w-48 top-0 h-full text-center' : 'hidden'}>
                     <div>
                         <ul className='flex gap-5 flex-col py-5 text-white'>
-                            <li className='text-white hover:text-gray-300'><Link to={'/register-issue'}>Issues</Link></li>
+                            <li className='text-white hover:text-gray-300'><Link to={'/register-issue'}>Register Issue</Link></li>
                             <li className='text-white hover:text-gray-300'><Link to={'/signup'}>Sign Up</Link></li>
                             <li className='text-white hover:text-gray-300'><Link to={'/login'}>Login</Link></li>
                         </ul>

@@ -17,7 +17,6 @@ const registerSchema = Yup.object().shape({
 
 const Signup = () => {
 
-
     const navigate = useNavigate();
     const [passwordHidden, setPasswordHidden] = useState(true);
     const registerForm = useFormik({

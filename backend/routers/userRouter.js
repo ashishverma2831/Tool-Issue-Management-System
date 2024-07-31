@@ -41,4 +41,25 @@ router.post('/register-issue', async (req,res)=>{
     });
 })
 
+router.get('/get-issues', async (req,res)=>{
+    await Issue.find()
+    .then((result) => {
+        res.json(result)
+    }).catch((err) => {
+        console.error(err);
+        res.status(500).json(err)
+    });
+})
+
+router.delete('/delete-issue/:id', async (req,res)=>{
+    console.log(req.params.id);
+    await Issue.findByIdAndDelete(req.params.id)
+    .then((result) => {
+        res.json(result)
+    }).catch((err) => {
+        console.error(err);
+        res.status(500).json(err)
+    });
+})
+
 module.exports = router;

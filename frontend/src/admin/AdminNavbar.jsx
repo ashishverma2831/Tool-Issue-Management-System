@@ -3,13 +3,15 @@ import { Link, useNavigate } from 'react-router-dom'
 import { enqueueSnackbar } from 'notistack';
 
 const AdminNavbar = () => {
+
     const navigate = useNavigate();
     const [sidebar, setSidebar] = useState(false)
-    const adminLogout = ()=>{
+    const adminLogout = () => {
         sessionStorage.removeItem('admin');
         navigate('/admin');
-        enqueueSnackbar('Admin Logged out successfully',{variant:'success'})
+        enqueueSnackbar('Admin Logged out successfully', { variant: 'success' })
     }
+    
     return (
         <>
             <nav className='bg-gray-800 p-5 flex justify-between items-center'>
@@ -18,7 +20,8 @@ const AdminNavbar = () => {
                     <ul className='flex gap-5 '>
                         <li><Link to={'/add-tool'} className='text-white'>Add Tool</Link></li>
                         <li><Link to={'/tool-list'} className='text-white'>Tool List</Link></li>
-                        <li><button onClick={()=>{adminLogout()}} className='text-white hover:text-gray-400 '>Logout</button></li>
+                        <li><Link to={'/view-issues'} className='text-white'>Issue List</Link></li>
+                        <li><button onClick={() => { adminLogout() }} className='text-white hover:text-gray-400 '>Logout</button></li>
                     </ul>
                 </div>
                 <div className='md:hidden cursor-pointer' onClick={() => { setSidebar(!sidebar) }}>
@@ -31,7 +34,8 @@ const AdminNavbar = () => {
                         <ul className='flex gap-5 flex-col py-5'>
                             <li><Link to={'/add-tool'} className='text-white'>Add Tool</Link></li>
                             <li><Link to={'/tool-list'} className='text-white'>Tool List</Link></li>
-                            <li><button onClick={()=>{adminLogout()}} className='text-white hover:text-gray-400 '>Logout</button></li>
+                            <li><Link to={'/view-issues'} className='text-white'>Issue List</Link></li>
+                            <li><button onClick={() => { adminLogout() }} className='text-white hover:text-gray-400 '>Logout</button></li>
                         </ul>
                     </div>
                 </div>
