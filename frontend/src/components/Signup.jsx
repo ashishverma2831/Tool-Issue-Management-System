@@ -13,6 +13,7 @@ const registerSchema = Yup.object().shape({
     mobile: Yup.string().required('Mobile number is required').min(10, 'Mobile number must be 10 digits').max(10, 'Mobile number must be 10 digits'),
     password: Yup.string().required('Password is required').min(8, 'Password must be atleast 8 characters')
     // .matches(/[a-zA-Z]\d/, 'password must include uppercase and lowercase letter')
+    ,selectedRole: Yup.string().required('Role is required')
 })
 
 const Signup = () => {
@@ -28,7 +29,7 @@ const Signup = () => {
             selectedRole: ''
         },
         onSubmit: async (values,{setSubmitting,resetForm}) => {
-            console.log(values)
+            console.log(values);
             setSubmitting(true);
             const response = await fetch('http://localhost:3000/user/created', {
                 method: 'POST',
@@ -44,6 +45,12 @@ const Signup = () => {
                 enqueueSnackbar('Registration Successful',{variant:'success'})
                 resetForm();
                 navigate('/login');
+            }
+            else if(response.status === 400){
+                enqueueSnackbar('Email already exists',{variant:'error'})
+            }
+            else if(response.status === 401){
+                enqueueSnackbar('Mobile Number already exists',{variant:'error'})
             }
             else{
                 enqueueSnackbar('Registration Failed',{variant:'error'})

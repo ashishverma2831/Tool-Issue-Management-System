@@ -1,8 +1,30 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import useAppContext from '../AppContext'
 
 const UserNavbar = () => {
-    const [sidebar, setSidebar] = useState(false)
+
+    const { currentUser, setCurrentUser, loggedIn, setLoggedIn, logout } = useAppContext();
+    console.log(currentUser);
+    const [sidebar, setSidebar] = useState(false);
+    const showLoginOptions = () => {
+        if (!loggedIn) {
+            return (
+                <>
+                    <li className='text-white hover:text-gray-300'><Link to={'/signup'}>Sign Up</Link></li>
+                    <li className='text-white hover:text-gray-300'><Link to={'/login'}>Login</Link></li>
+                </>
+            )
+        }
+        else {
+            return (
+                <>
+                    <li className='text-white hover:text-gray-300'><button onClick={logout}>Logout</button></li>
+                </>
+            )
+        }
+    }
+
     return (
         <>
             <nav className='bg-gray-800 p-5 flex justify-between items-center'>
@@ -10,8 +32,7 @@ const UserNavbar = () => {
                 <div className='hidden md:block'>
                     <ul className='flex gap-5 '>
                         <li className='text-white hover:text-gray-300'><Link to={'/register-issue'}>Register Issue</Link></li>
-                        <li className='text-white hover:text-gray-300'><Link to={'/signup'}>Sign Up</Link></li>
-                        <li className='text-white hover:text-gray-300'><Link to={'/login'}>Login</Link></li>
+                        {showLoginOptions()}
                     </ul>
                 </div>
                 <div className='md:hidden cursor-pointer' onClick={() => { setSidebar(!sidebar) }}>
@@ -23,8 +44,7 @@ const UserNavbar = () => {
                     <div>
                         <ul className='flex gap-5 flex-col py-5 text-white'>
                             <li className='text-white hover:text-gray-300'><Link to={'/register-issue'}>Register Issue</Link></li>
-                            <li className='text-white hover:text-gray-300'><Link to={'/signup'}>Sign Up</Link></li>
-                            <li className='text-white hover:text-gray-300'><Link to={'/login'}>Login</Link></li>
+                            {showLoginOptions()}
                         </ul>
                     </div>
                 </div>

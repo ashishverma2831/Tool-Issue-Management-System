@@ -11,6 +11,7 @@ const Login = () => {
     const [passwordHidden, setPasswordHidden] = useState(true);
     const {currentUser,setCurrentUser,loggedIn,setLoggedIn,logout} = useAppContext();
     const navigate = useNavigate();
+    console.log(currentUser);
     const loginForm = useFormik({
         initialValues: {
             name: '',
@@ -24,7 +25,6 @@ const Login = () => {
                     'Content-Type': 'application/json',
                     
                 },
-                // mode:'no-cors',
                 body: JSON.stringify(values)
             })
 
@@ -33,7 +33,7 @@ const Login = () => {
                 const data = await res.json();
                 sessionStorage.setItem('user', JSON.stringify(data))
                 setLoggedIn(true);
-                navigate('/home');
+                navigate('/');
             }
             else if (res.status === 401) {
                 enqueueSnackbar('Invalid Credentials', { variant: 'error' })
@@ -55,11 +55,9 @@ const Login = () => {
                             <label htmlFor='name'>Name</label>
                             <input placeholder='Enter your name' onChange={loginForm.handleChange} value={loginForm.values.name} className='p-2 outline-none border-none rounded' type='text' id='name' />
                         </div>
-                        {/* <div className='w-full flex flex-col gap-1  mb-8'>
+                        <div className='w-full flex flex-col gap-1  mb-8'>
                             <label htmlFor='password'>Password</label>
-                            <input onChange={loginForm.handleChange} value={loginForm.values.password} className='p-2 outline-none border-none rounded' type='password' id='password' />
-                        </div> */}
-                        <div className='relative flex'>
+                            <div className='relative flex'>
                                 <input
                                     type={passwordHidden ? 'password' : 'text'}
                                     name="password"
@@ -71,12 +69,13 @@ const Login = () => {
                                 />
                                 <button type='button' className='absolute top-2 right-2' onClick={() => { setPasswordHidden(!passwordHidden) }}>{passwordHidden ? <i className="fa-solid fa-eye"></i> : <i className="fa-regular fa-eye"></i>}</button>
                             </div>
+                        </div> 
                         {/* <div className='w-full flex flex-col gap-1'>
                     <label>Picture</label>
                     <input type='file' />
                 </div> */}
                         <div className='w-full flex mt-4'>
-                            <button className='shadow-xl text-center w-full bg-red-600  py-3 rounded hover:bg-red-400 text-white text-xl ' type='submit'>Register</button>
+                            <button className='shadow-xl text-center w-full bg-red-600  py-3 rounded hover:bg-red-400 text-white text-xl ' type='submit'>Login</button>
                         </div>
                     </form>
                     <p>Don't have an account...? <Link className='text-purple-900' to={'/signup'}>Create account</Link></p>
