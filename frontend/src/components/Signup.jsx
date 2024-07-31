@@ -20,6 +20,7 @@ const Signup = () => {
 
     const navigate = useNavigate();
     const [passwordHidden, setPasswordHidden] = useState(true);
+    const [image, setImage] = useState('');
     const registerForm = useFormik({
         initialValues: {
             name: '',
@@ -31,6 +32,7 @@ const Signup = () => {
         },
         onSubmit: async (values, { setSubmitting, resetForm }) => {
             console.log(values);
+            values.image = image;
             setSubmitting(true);
             const response = await fetch('http://localhost:3000/user/created', {
                 method: 'POST',
@@ -59,6 +61,21 @@ const Signup = () => {
         },
         validationSchema: registerSchema
     })
+
+    const uploadFile = (e) => {
+        const file = e.target.files[0];
+        setImage(file.name);
+        const fd = new FormData();
+        fd.append("myfile", file);
+        fetch('http://localhost:3000/util/uploadfile', {
+          method: "POST",
+          body: fd,
+        }).then((res) => {
+          if (res.status === 200) {
+            console.log("file uploaded");
+          }
+        });
+      };
 
     return (
         <>
@@ -130,8 +147,8 @@ const Signup = () => {
                             <span className='text-sm text-red-600'>{registerForm.touched.password && registerForm.errors.password}</span>
                         </div>
                         <div className='w-full flex flex-col gap-1'>
-                            <label>Picture</label>
-                            <input className='p-2 w-full bg-white outline-none border-none rounded ' type='file' />
+                            <label htmlFor='image'>Picture</label>
+                            <input id='image' onChange={uploadFile} className='p-2 w-full bg-white outline-none border-none rounded ' type='file' />
                         </div>
                         <div className='w-full flex mt-4'>
                             <button className='text-center shadow-xl w-full bg-red-600  py-3 rounded hover:bg-red-400 text-white text-xl ' type='submit'>Register</button>
