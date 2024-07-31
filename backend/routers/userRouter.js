@@ -5,7 +5,7 @@ const Issue = require('../models/registerIssue.js');
 
 router.post('/created', async (req, res) => {
     console.log(req.body);
-    const { name, email, mobile, password, selectedRole } = req.body;
+    const { name, email, mobile, password, image, selectedRole } = req.body;
 
     // await Model.findOne({ email: email,mobile: mobile })
     //     .then((result) => {
@@ -26,7 +26,7 @@ router.post('/created', async (req, res) => {
     //         res.status(500).json(err)
     //     })
 
-    await new Model({ name, email, mobile, password, selectedRole }).save()
+    await new Model({ name, email, mobile, password, image, selectedRole }).save()
         .then((result) => {
             res.json(result)
         }).catch((err) => {

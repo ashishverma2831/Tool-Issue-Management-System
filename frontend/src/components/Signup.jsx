@@ -11,16 +11,17 @@ const registerSchema = Yup.object().shape({
     name: Yup.string().required('Name is required'),
     email: Yup.string().email('Invalid email').required('Email is required'),
     mobile: Yup.string().required('Mobile number is required').min(10, 'Mobile number must be 10 digits').max(10, 'Mobile number must be 10 digits'),
-    password: Yup.string().required('Password is required').min(8, 'Password must be atleast 8 characters')
-    // .matches(/[a-zA-Z]\d/, 'password must include uppercase and lowercase letter')
-    , selectedRole: Yup.string().required('Role is required')
+    password: Yup.string().required('Password is required').min(8, 'Password must be atleast 8 characters'),
+    // .matches(/[a-zA-Z]\d/, 'password must include uppercase and lowercase letter'),
+    selectedRole: Yup.string().required('Role is required'),
+    // image: Yup.string().required('Image is required')
 })
 
 const Signup = () => {
 
     const navigate = useNavigate();
     const [passwordHidden, setPasswordHidden] = useState(true);
-    const [image, setImage] = useState('');
+    const [selFile, setSelFile] = useState('');
     const registerForm = useFormik({
         initialValues: {
             name: '',
@@ -31,8 +32,8 @@ const Signup = () => {
             image: ''
         },
         onSubmit: async (values, { setSubmitting, resetForm }) => {
+            values.image = selFile;
             console.log(values);
-            values.image = image;
             setSubmitting(true);
             const response = await fetch('http://localhost:3000/user/created', {
                 method: 'POST',
@@ -62,12 +63,12 @@ const Signup = () => {
         validationSchema: registerSchema
     })
 
-    const uploadFile = (e) => {
+    const uploadFile = async (e) => {
         const file = e.target.files[0];
-        setImage(file.name);
+        setSelFile(file.name);
         const fd = new FormData();
         fd.append("myfile", file);
-        fetch('http://localhost:3000/util/uploadfile', {
+        await fetch('http://localhost:3000/util/uploadfile', {
           method: "POST",
           body: fd,
         }).then((res) => {
@@ -126,13 +127,7 @@ const Signup = () => {
                         </div>
                         <div className='w-full flex flex-col gap-1  mb-4'>
                             <label htmlFor='password'>Password</label>
-                            {/* <input 
-                    id='password'
-                    type={passwordHidden?'password':'text'}
-                    onChange={registerForm.handleChange}
-                    value={registerForm.values.password}
-                    className='p-2 outline-none border-none rounded' /> */}
-                            <div className='relative flex'>
+                           <div className='relative flex'>
                                 <input
                                     type={passwordHidden ? 'password' : 'text'}
                                     name="password"

@@ -4,9 +4,9 @@ const Tool = require('../models/addTool.js');
 
 router.post('/tool-added',async (req,res)=>{
     console.log(req.body);
-    const {toolName,toolDescription,toolImage,quantity} = req.body;
+    const {toolName,toolDescription,image,quantity} = req.body;
 
-    await new Tool({toolName,toolDescription,toolImage,quantity}).save()
+    await new Tool({toolName,toolDescription,quantity,image}).save()
     .then((result) => {
         res.json(result)
     }).catch((err) => {

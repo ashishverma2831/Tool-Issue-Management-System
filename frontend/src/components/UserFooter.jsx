@@ -20,12 +20,12 @@ const UserFooter = () => {
                 <div>
                   <ul className='flex gap-y-2 flex-wrap'>
                     <li className='w-1/2 hover:translate-x-1  hover:duration-500 duration-500'><Link to='/login' className='hover:underline hover:cursor-pointer '>Login</Link></li>
-                    {/* <li className=' w-1/2  hover:translate-x-1  hover:duration-500 duration-500'><Link to='/about' className='hover:underline hover:cursor-pointer'>About</Link></li> */}
                     <li className='w-1/2  hover:translate-x-1  hover:duration-500 duration-500'><Link to='/signup' className='hover:underline hover:cursor-pointer'>Register</Link></li>
                     <li className='w-1/2   hover:translate-x-1 hover:duration-500 duration-500'><Link to='register-issue' className='hover:underline hover:cursor-pointer'>Register Issue</Link></li>
-                    <li className='w-1/2  hover:translate-x-1  hover:duration-500 duration-500'><Link to='/contact' className='hover:underline hover:cursor-pointer'>Contact Us</Link></li>
-                    <li className='w-1/2   hover:translate-x-1 hover:duration-500 duration-500'><Link to='/feedback' className='hover:underline hover:cursor-pointer'>Feedback</Link></li>
-                    <li className='w-1/2  hover:translate-x-1  hover:duration-500 duration-500'><Link to='#' className='hover:underline hover:cursor-pointer'>Privacy Policy</Link></li>
+                    <li className='w-1/2  hover:translate-x-1  hover:duration-500 duration-500'><Link to='/#' className='hover:underline hover:cursor-pointer'>New Task</Link></li>
+                    <li className='w-1/2   hover:translate-x-1 hover:duration-500 duration-500'><Link to='/#' className='hover:underline hover:cursor-pointer'>New Task</Link></li>
+                    <li className='w-1/2  hover:translate-x-1  hover:duration-500 duration-500'><Link to='#' className='hover:underline hover:cursor-pointer'>New Task</Link></li>
+                    <li className='w-1/2  hover:translate-x-1  hover:duration-500 duration-500'><Link to='#' className='hover:underline hover:cursor-pointer'>New Task</Link></li>
                   </ul>
                 </div>
             </div>

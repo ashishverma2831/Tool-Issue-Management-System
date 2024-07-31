@@ -15,6 +15,7 @@ mongoose.connect('mongodb+srv://root:root@cluster0.ve2kz8r.mongodb.net/toolissue
 
 const UserRouter = require('./routers/userRouter.js');
 const AddToolRouter = require('./routers/toolRouter.js')
+const utilRouter = require('./routers/util.js')
 
 
 app.use(express.json());
@@ -23,7 +24,7 @@ app.use(cors({
 }));
 app.use('/user',UserRouter);
 app.use('/tool',AddToolRouter);
-app.use('/util',utilRouter)
+app.use('/util',utilRouter);
 app.use('/uploads',express.static('uploads'))
 
 

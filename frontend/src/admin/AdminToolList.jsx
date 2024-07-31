@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import AdminNavbar from './AdminNavbar'
 import { Link } from 'react-router-dom';
+import UserFooter from '../components/UserFooter';
 
 const AdminToolList = () => {
 
@@ -46,9 +47,9 @@ const AdminToolList = () => {
                             <th scope="col" className="px-6 py-3 text-center">
                                 Tool Description
                             </th>
-                            {/* <th scope="col" className="px-6 py-3 text-center">
+                            <th scope="col" className="px-6 py-3 text-center">
                                 Tool Image
-                            </th> */}
+                            </th>
                             <th scope="col" className="px-6 py-3 text-center">
                                 Quantity
                             </th>
@@ -61,10 +62,10 @@ const AdminToolList = () => {
                         {
         toolList.map((tool)=>{
             return (
-                <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                <tr className="bg-white border-b hover:bg-gray-50">
         <td className="px-6 py-4 capitalize text-center">{tool.toolName}</td>
         <td className="px-6 py-4 capitalize text-center">{tool.toolDescription}</td>
-        {/* <td className="px-6 py-4 text-center"><img src={tool.toolImage} /> </td> */}
+        <td className="px-6 py-4 text-center"><img className='w-full h-[200px]' alt='tool-image' src={'http://localhost:3000/uploads/'+tool.image} /> </td>
         <td className="px-6 py-4 text-center">{tool.quantity}</td>
         <td className="px-6 py-4 text-center">
         <Link className='mx-2 ' onClick={()=>{deleteTool(tool._id)}}><i className="fa-solid fa-trash text-red-700"></i></Link>
@@ -76,6 +77,7 @@ const AdminToolList = () => {
                     </tbody>
                 </table>
             </div>
+            <UserFooter />
         </>
     )
 }

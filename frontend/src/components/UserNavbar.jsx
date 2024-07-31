@@ -5,7 +5,7 @@ import useAppContext from '../AppContext'
 const UserNavbar = () => {
 
     const { currentUser, setCurrentUser, loggedIn, setLoggedIn, logout } = useAppContext();
-    console.log(currentUser);
+    // console.log(currentUser);
     const [sidebar, setSidebar] = useState(false);
     const showLoginOptions = () => {
         if (!loggedIn) {

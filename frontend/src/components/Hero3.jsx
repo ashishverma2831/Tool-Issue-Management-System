@@ -1,9 +1,6 @@
 import React from 'react'
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import { Link } from 'react-router-dom';
-import '../App.css'
-import Hero2 from './Hero2';
 
 const Hero3 = () => {
 

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import AdminNavbar from './AdminNavbar'
 import { Link } from 'react-router-dom'
+import UserFooter from '../components/UserFooter';
 
 const ViewIssues = () => {
 
@@ -72,6 +73,7 @@ const ViewIssues = () => {
                     </tbody>
                 </table>
             </div>
+            <UserFooter />
         </>
     )
 }
