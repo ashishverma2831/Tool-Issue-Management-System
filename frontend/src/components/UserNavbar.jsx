@@ -5,7 +5,7 @@ import useAppContext from '../AppContext'
 const UserNavbar = () => {
 
     const { currentUser, setCurrentUser, loggedIn, setLoggedIn, logout } = useAppContext();
-    console.log(currentUser);
+    // console.log(currentUser);
     const [sidebar, setSidebar] = useState(false);
     const showLoginOptions = () => {
         if (!loggedIn) {
@@ -19,7 +19,7 @@ const UserNavbar = () => {
         else {
             return (
                 <>
-                        <li className='text-white hover:text-gray-300'><Link to={'/add-tool'}>Add Tool</Link></li>
+                        <li className='text-white hover:text-gray-300'><Link to={'/user-add-tool'}>Add Tool</Link></li>
                         <li className='text-white hover:text-gray-300'><Link to={'/browse-tools'}>Browse Tools</Link></li>
                         <li className='text-white hover:text-gray-300'><Link to={'/register-issue'}>Register Issue</Link></li>
                     <li className='text-white hover:text-gray-300'><button onClick={logout}>Logout</button></li>
@@ -35,7 +35,7 @@ const UserNavbar = () => {
 
     return (
         <>
-            <nav className='md:sticky md:top-0 shadow-xl bg-gray-800 p-4 flex justify-between items-center'>
+            <nav className='md:sticky z-10 md:top-0 shadow-xl bg-gray-800 p-4 flex justify-between items-center'>
                 <div className='text-white font-semibold text-xl'> <Link to={'/'} >Tool Issue Management System</Link> </div>
                 <div className='hidden md:block'>
                     <ul className='flex gap-5 items-center'>

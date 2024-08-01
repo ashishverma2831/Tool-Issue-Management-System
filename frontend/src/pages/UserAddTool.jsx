@@ -2,8 +2,8 @@ import { useFormik } from 'formik'
 import React, { useContext, useState } from 'react'
 import * as Yup from 'yup'
 import { enqueueSnackbar } from 'notistack'
-import AdminNavbar from './AdminNavbar'
 import UserFooter from '../components/UserFooter'
+import UserNavbar from '../components/UserNavbar'
 
 
 const toolSchema = Yup.object().shape({
@@ -11,7 +11,7 @@ const toolSchema = Yup.object().shape({
     toolDescription: Yup.string().required('Tool Description is required'),
     quantity: Yup.number().required('Quantity is required').min(1, 'Quantity must be atleast 1')
 })
-const AddTool = () => {
+const UserAddTool = () => {
 
     const [selFile, setSelFile] = useState('');
     const addTool = useFormik({
@@ -62,7 +62,7 @@ const AddTool = () => {
 
     return (
         <>
-            <AdminNavbar />
+            <UserNavbar />
             <section className='w-full py-10 mx-auto bg-red-500 flex justify-center items-center'>
                 <div className='my-8 flex flex-col gap-4 bg-blue-200 max-w-screen-xl p-10 shadow-xl rounded'>
                     <h1 className='text-3xl font-bold text-center'>Add Tools</h1>
@@ -100,4 +100,4 @@ const AddTool = () => {
     )
 }
 
-export default AddTool
+export default UserAddTool

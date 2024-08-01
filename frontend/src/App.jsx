@@ -12,6 +12,7 @@ import AdminToolList from './admin/AdminToolList'
 import IssueRegister from './pages/IssueRegister'
 import ViewIssues from './admin/ViewIssues'
 import BrowseTools from './pages/BrowseTools'
+import UserAddTool from './pages/UserAddTool'
 
 const App = () => {
 
@@ -27,6 +28,7 @@ const App = () => {
               <Route path="/admin" element={<AdminLogin />} />
               <Route path="/admin-home" element={<AdminHome />} />
               <Route path="/add-tool" element={<AddTool />} />
+              <Route path="/user-add-tool" element={<UserAddTool />} />
               <Route path="/tool-list" element={<AdminToolList />} />
               <Route path="/register-issue" element={<IssueRegister />} />
               <Route path="/view-issues" element={<ViewIssues />} />

@@ -4,6 +4,7 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import * as Yup from 'yup'
 import UserNavbar from '../components/UserNavbar'
+import useAppContext from '../AppContext'
 import UserFooter from '../components/UserFooter'
 
 const issueSchema = Yup.object().shape({
@@ -13,6 +14,8 @@ const issueSchema = Yup.object().shape({
 })
 
 const IssueRegister = () => {
+
+    const {currentUser,setCurrentUser,loggedIn,setLoggedIn,logout} = useAppContext();
 
     const navigate = useNavigate();
     const registerIssue = useFormik({
