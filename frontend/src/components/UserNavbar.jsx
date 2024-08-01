@@ -20,6 +20,7 @@ const UserNavbar = () => {
             return (
                 <>
                         <li className='text-white hover:text-gray-300'><Link to={'/add-tool'}>Add Tool</Link></li>
+                        <li className='text-white hover:text-gray-300'><Link to={'/browse-tools'}>Browse Tools</Link></li>
                         <li className='text-white hover:text-gray-300'><Link to={'/register-issue'}>Register Issue</Link></li>
                     <li className='text-white hover:text-gray-300'><button onClick={logout}>Logout</button></li>
                     {
