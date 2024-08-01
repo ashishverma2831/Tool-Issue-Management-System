@@ -70,12 +70,12 @@ const AddTool = () => {
                     <form onSubmit={addTool.handleSubmit}>
                         <div className='w-full flex flex-col gap-1 mb-4'>
                             <label>Tool Name</label>
-                            <input placeholder='Enter toolname' id='toolName' onChange={addTool.handleChange} value={addTool.values.toolName} className='p-2 outline-none border-none rounded' type='text' />
+                            <input placeholder='Enter Tool name' id='toolName' onChange={addTool.handleChange} value={addTool.values.toolName} className='p-2 outline-none border-none rounded' type='text' />
                             <span className='text-sm text-red-600'>{addTool.touched.toolName && addTool.errors.toolName}</span>
                         </div>
                         <div className='w-full flex flex-col gap-1 mb-4'>
                             <label>Tool Description</label>
-                            <textarea placeholder='Tool description here' id='toolDescription' onChange={addTool.handleChange} value={addTool.values.toolDescription} className='p-2 outline-none border-none rounded'></textarea>
+                            <textarea rows={4} placeholder='Tool description here' id='toolDescription' onChange={addTool.handleChange} value={addTool.values.toolDescription} className='p-2 outline-none border-none rounded'></textarea>
                             <span className='text-sm text-red-600'>{addTool.touched.toolDescription && addTool.errors.toolDescription}</span>
                         </div>
                         {/* <div className='w-full flex flex-col gap-1 mb-4'>
@@ -83,7 +83,7 @@ const AddTool = () => {
                         <input id='toolImage' onChange={addTool.handleChange} value={addTool.values.toolImage}  className='p-2 outline-none border-none rounded' type='file' />
                         <span className='text-sm text-red-600'>{addTool.touched.toolImage && addTool.errors.toolImage}</span>
                     </div> */}
-                        <div className='w-full flex flex-col gap-1'>
+                        <div className='w-full flex flex-col gap-1 mb-4'>
                             <label htmlFor='image'>Picture</label>
                             <input id='image' onChange={uploadFile} className='p-2 w-full bg-white outline-none border-none rounded ' type='file' />
                         </div>

@@ -10,8 +10,8 @@ const Hero = () => {
 
     return (
         <>
-            <section className='bg-gray-100'>
-                <img className='w-full h-[360px] md:h-[520px]' src={images[0]} />
+            <section className='bg-gray-100 py-10 md:py-0'>
+                <img className='object-contain w-full' src={images[0]} />
             </section>
         </>
     )

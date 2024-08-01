@@ -5,7 +5,7 @@ import useAppContext from '../AppContext'
 const UserNavbar = () => {
 
     const { currentUser, setCurrentUser, loggedIn, setLoggedIn, logout } = useAppContext();
-    // console.log(currentUser);
+    console.log(currentUser);
     const [sidebar, setSidebar] = useState(false);
     const showLoginOptions = () => {
         if (!loggedIn) {
@@ -19,7 +19,14 @@ const UserNavbar = () => {
         else {
             return (
                 <>
+                        <li className='text-white hover:text-gray-300'><Link to={'/add-tool'}>Add Tool</Link></li>
+                        <li className='text-white hover:text-gray-300'><Link to={'/register-issue'}>Register Issue</Link></li>
                     <li className='text-white hover:text-gray-300'><button onClick={logout}>Logout</button></li>
+                    {
+                        currentUser && currentUser.image ? 
+                        (<li className='text-white hover:text-gray-300'><img className='w-10 h-10 rounded-full' alt='profile-image' src={'http://localhost:3000/uploads/'+currentUser.image} /></li>)
+                        : <li className='text-white hover:text-gray-300'><img className='w-10 h-10 rounded-full' alt='profile-icon' src='https://st3.depositphotos.com/15648834/17930/v/450/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg' /></li>
+                    }
                 </>
             )
         }
@@ -27,11 +34,10 @@ const UserNavbar = () => {
 
     return (
         <>
-            <nav className='sticky top-0 shadow-xl bg-gray-800 p-5 flex justify-between items-center'>
+            <nav className='md:sticky md:top-0 shadow-xl bg-gray-800 p-4 flex justify-between items-center'>
                 <div className='text-white font-semibold text-xl'> <Link to={'/'} >Tool Issue Management System</Link> </div>
                 <div className='hidden md:block'>
-                    <ul className='flex gap-5 '>
-                        <li className='text-white hover:text-gray-300'><Link to={'/register-issue'}>Register Issue</Link></li>
+                    <ul className='flex gap-5 items-center'>
                         {showLoginOptions()}
                     </ul>
                 </div>
@@ -43,7 +49,7 @@ const UserNavbar = () => {
                 <div className={sidebar ? 'absolute bg-gray-800 left-0 w-48 top-0 h-full text-center' : 'hidden'}>
                     <div>
                         <ul className='flex gap-5 flex-col py-5 text-white'>
-                            <li className='text-white hover:text-gray-300'><Link to={'/register-issue'}>Register Issue</Link></li>
+                            {/* <li className='text-white hover:text-gray-300'><Link to={'/register-issue'}>Register Issue</Link></li> */}
                             {showLoginOptions()}
                         </ul>
                     </div>

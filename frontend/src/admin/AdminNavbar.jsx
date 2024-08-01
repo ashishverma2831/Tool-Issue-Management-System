@@ -14,7 +14,7 @@ const AdminNavbar = () => {
     
     return (
         <>
-            <nav className='sticky top-0 shadow-xl bg-gray-800 p-5 flex justify-between items-center'>
+            <nav className='md:sticky md:top-0 shadow-xl bg-gray-800 p-5 flex justify-between items-center'>
                 <div className='text-white font-semibold text-xl'> <Link to={'/admin-home'}>Tool Issue Management System</Link> </div>
                 <div className='hidden md:block'>
                     <ul className='flex gap-5 '>
