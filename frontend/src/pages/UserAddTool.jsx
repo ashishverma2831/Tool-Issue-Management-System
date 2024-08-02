@@ -63,7 +63,7 @@ const UserAddTool = () => {
     return (
         <>
             <UserNavbar />
-            <section className='w-full py-10 mx-auto bg-red-500 flex justify-center items-center'>
+            <section className='w-full py-10 mx-auto bg-blue-500/50 flex justify-center items-center'>
                 <div className='my-8 flex flex-col gap-4 bg-blue-200 max-w-screen-xl p-10 shadow-xl rounded'>
                     <h1 className='text-3xl font-bold text-center'>Add Tools</h1>
                     <form onSubmit={addTool.handleSubmit}>
@@ -91,7 +91,7 @@ const UserAddTool = () => {
                             <input placeholder='Enter the quantity of the tool ' id='quantity' onChange={addTool.handleChange} value={addTool.values.quantity} className='p-2 outline-none border-none rounded' type='number' />
                             <span className='text-sm text-red-600'>{addTool.touched.quantity && addTool.errors.quantity}</span>
                         </div>
-                        <button className='text-center shadow-xl w-full bg-red-600  py-3 rounded hover:bg-red-400 text-white text-xl ' type='submit'>Add Tool</button>
+                        <button className='text-center shadow-xl w-full bg-gray-800  py-3 rounded hover:bg-gray-600 text-white text-xl ' type='submit'>Add Tool</button>
                     </form>
                 </div>
             </section>

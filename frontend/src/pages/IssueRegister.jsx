@@ -51,7 +51,7 @@ const IssueRegister = () => {
     return (
         <>
             <UserNavbar />
-            <section className='w-full py-10 mx-auto bg-red-500 flex justify-center items-center'>
+            <section className='w-full py-10 mx-auto bg-blue-500/50 flex justify-center items-center'>
                 <div className=' flex my-8 flex-col gap-4 bg-blue-200 max-w-screen-xl p-10 shadow-xl rounded'>
                     <h1 className='text-3xl font-bold text-center'>Send Your Issues here</h1>
                     <form className='w-[360px]' onSubmit={registerIssue.handleSubmit}>
@@ -71,7 +71,7 @@ const IssueRegister = () => {
                             <span className='text-red-500 text-sm'>{registerIssue.touched.issue && registerIssue.errors.issue }</span>
                         </div>
                         <div className='w-full flex mt-4'>
-                            <button className='shadow-xl text-center w-full bg-red-600  py-3 rounded hover:bg-red-400 text-white text-xl ' type='submit'>Register</button>
+                            <button className='shadow-xl text-center w-full bg-gray-800  py-3 rounded hover:bg-gray-600 text-white text-xl ' type='submit'>Register</button>
                         </div>
                     </form>
                 </div>

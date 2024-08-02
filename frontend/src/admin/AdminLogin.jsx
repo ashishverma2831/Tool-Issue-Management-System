@@ -30,7 +30,7 @@ const AdminLogin = () => {
     <>
       <section className='w-full h-screen mx-auto bg-red-500 flex justify-center items-center'>
             <div className=' flex flex-col gap-4 bg-blue-200 max-w-screen-xl p-10 shadow-xl rounded'>
-            <h1 className='text-3xl font-bold text-center'>Login</h1>
+            <h1 className='text-3xl font-bold text-center'>Admin Login</h1>
             <form className='w-[360px]' onSubmit={adminLoginForm.handleSubmit}>
                 <div className='w-full flex flex-col gap-1 mb-4'>
                     <label htmlFor='email'>Email</label>

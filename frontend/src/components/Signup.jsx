@@ -81,7 +81,7 @@ const Signup = () => {
     return (
         <>
             <UserNavbar />
-            <section className='w-full py-10 mx-auto bg-red-500 flex justify-center items-center'>
+            <section className='w-full py-10 mx-auto bg-blue-500/50 flex justify-center items-center'>
                 <div className='my-8 flex flex-col gap-4 bg-blue-200 max-w-screen-xl p-10 shadow-xl rounded'>
                     <h1 className='text-3xl font-bold text-center'>Registration</h1>
                     <form className='w-[360px]' onSubmit={registerForm.handleSubmit}>
@@ -146,7 +146,7 @@ const Signup = () => {
                             <input id='image' onChange={uploadFile} className='p-2 w-full bg-white outline-none border-none rounded ' type='file' />
                         </div>
                         <div className='w-full flex mt-4'>
-                            <button className='text-center shadow-xl w-full bg-red-600  py-3 rounded hover:bg-red-400 text-white text-xl ' type='submit'>Register</button>
+                            <button className='text-center shadow-xl w-full bg-gray-800  py-3 rounded hover:bg-gray-600 text-white text-xl ' type='submit'>Register</button>
                         </div>
                     </form>
                     <p>Already Registered...? <Link className='text-purple-900' to={'/login'}>click here to login</Link></p>

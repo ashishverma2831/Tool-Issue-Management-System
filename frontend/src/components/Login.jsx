@@ -47,7 +47,7 @@ const Login = () => {
     return (
         <>
         <UserNavbar />
-            <section className='w-full h-screen mx-auto bg-red-500 flex justify-center items-center'>
+            <section className='w-full h-screen mx-auto bg-blue-500/50 flex justify-center items-center'>
                 <div className=' flex flex-col gap-4 bg-blue-200 max-w-screen-xl p-10 shadow-xl rounded'>
                     <h1 className='text-3xl font-bold text-center'>Login</h1>
                     <form className='w-[360px]' onSubmit={loginForm.handleSubmit}>
@@ -75,7 +75,7 @@ const Login = () => {
                     <input type='file' />
                 </div> */}
                         <div className='w-full flex mt-4'>
-                            <button className='shadow-xl text-center w-full bg-red-600  py-3 rounded hover:bg-red-400 text-white text-xl ' type='submit'>Login</button>
+                            <button className='shadow-xl text-center w-full bg-gray-800  py-3 rounded hover:bg-gray-600 text-white text-xl ' type='submit'>Login</button>
                         </div>
                     </form>
                     <p>Don't have an account...? <Link className='text-purple-900' to={'/signup'}>Create account</Link></p>
