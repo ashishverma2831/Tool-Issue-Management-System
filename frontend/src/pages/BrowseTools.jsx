@@ -301,7 +301,7 @@ const BrowseTools = () => {
                 <h1 className='text-3xl font-bold mt-5'>Browse Tools</h1>
                 <p className='text-xl text-gray-600'>Browse through our wide range of tools</p>
             </div>
-            <section className='bg-gray-200 flex gap-6 my-10'>
+            <section className='bg-gray-200 flex-col md:flex-row flex gap-0 md:gap-6 my-10'>
                 <div className='p-4'>
                     <div className='bg-gray-400/50 rounded p-4 sticky top-[100px]'>
                         <h2 className='text-3xl font-bold mb-5'>Filters</h2>
@@ -320,7 +320,7 @@ const BrowseTools = () => {
                         </div>
                     </div>
                 </div>
-                <div className='p-5'>
+                <div className='p-5 md:p-0'>
                     {
                         category === ''?null:(<div>
                             <h1 className='text-center text-2xl capitalize'>{category} tools </h1>
@@ -333,8 +333,8 @@ const BrowseTools = () => {
                             return (
                                 <div key={index} className='bg-white shadow-lg rounded p-5'>
                                     <img src={tool.image} className='w-full h-60 object-contain' />
-                                    <p className='text-lg font-semibold my-2'>{tool.category}</p>
-                                    <p className='text-sm text-gray-600'>{tool.description}</p>
+                                    <p className='text-lg font-semibold my-2'>{tool.description}</p>
+                                    <p className='text-sm text-gray-600'>{tool.category}</p>
                                 </div>
                             )
                         })

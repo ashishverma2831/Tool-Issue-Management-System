@@ -19,14 +19,14 @@ const UserNavbar = () => {
         else {
             return (
                 <>
-                        <li className='text-white hover:text-gray-300'><Link to={'/user-add-tool'}>Add Tool</Link></li>
-                        <li className='text-white hover:text-gray-300'><Link to={'/browse-tools'}>Browse Tools</Link></li>
-                        <li className='text-white hover:text-gray-300'><Link to={'/register-issue'}>Register Issue</Link></li>
+                    <li className='text-white hover:text-gray-300'><Link to={'/user-add-tool'}>Add Tool</Link></li>
+                    <li className='text-white hover:text-gray-300'><Link to={'/browse-tools'}>Browse Tools</Link></li>
+                    <li className='text-white hover:text-gray-300'><Link to={'/register-issue'}>Register Issue</Link></li>
                     <li className='text-white hover:text-gray-300'><button onClick={logout}>Logout</button></li>
                     {
-                        currentUser && currentUser.image ? 
-                        (<li className='text-white hover:text-gray-300'><img className='w-10 h-10 rounded-full' alt='profile-image' src={'http://localhost:3000/uploads/'+currentUser.image} /></li>)
-                        : <li className='text-white hover:text-gray-300'><img className='w-10 h-10 rounded-full' alt='profile-icon' src='https://st3.depositphotos.com/15648834/17930/v/450/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg' /></li>
+                        currentUser?
+                            (<li className='text-white text-center hover:text-gray-300'><img className='w-10 h-10 rounded-full' alt='profile-image' src={'http://localhost:3000/uploads/' + currentUser.image} /></li>)
+                            : <li className='text-white text-center hover:text-gray-300'><img className='w-10 h-10 rounded-full' alt='profile-icon' src='https://st3.depositphotos.com/15648834/17930/v/450/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg' /></li>
                     }
                 </>
             )
@@ -47,11 +47,32 @@ const UserNavbar = () => {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
                     </svg>
                 </div>
-                <div className={sidebar ? 'absolute bg-gray-800 left-0 w-48 top-0 h-full text-center' : 'hidden'}>
+                <div className={sidebar ? 'absolute z-10 bg-gray-800 left-0 w-48 top-0 h-full text-center' : 'hidden'}>
                     <div>
                         <ul className='flex gap-5 flex-col py-5 text-white'>
                             {/* <li className='text-white hover:text-gray-300'><Link to={'/register-issue'}>Register Issue</Link></li> */}
-                            {showLoginOptions()}
+                            {
+                                !loggedIn ?
+                                    (
+                                        <>
+                                            <li className='text-white hover:text-gray-300'><Link to={'/signup'}>Sign Up</Link></li>
+                                            <li className='text-white hover:text-gray-300'><Link to={'/login'}>Login</Link></li>
+                                        </>
+                                    )
+                                    : (
+                                        <>
+                                            <li className='text-white hover:text-gray-300'><Link to={'/user-add-tool'}>Add Tool</Link></li>
+                                            <li className='text-white hover:text-gray-300'><Link to={'/browse-tools'}>Browse Tools</Link></li>
+                                            <li className='text-white hover:text-gray-300'><Link to={'/register-issue'}>Register Issue</Link></li>
+                                            <li className='text-white hover:text-gray-300'><button type='submit' onClick={logout}>Logout</button></li>
+                                            {/* {
+                                                currentUser && currentUser.image ?
+                                                    (<li className='text-white text-center hover:text-gray-300'><img className='w-10 h-10 rounded-full' alt='profile-image' src={'http://localhost:3000/uploads/' + currentUser.image} /></li>)
+                                                    : <li className='text-white text-center hover:text-gray-300'><img className='w-10 h-10 rounded-full' alt='profile-icon' src='https://st3.depositphotos.com/15648834/17930/v/450/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg' /></li>
+                                            } */}
+                                        </>
+                                    )
+                            }
                         </ul>
                     </div>
                 </div>

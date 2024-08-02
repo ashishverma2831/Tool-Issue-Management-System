@@ -11,7 +11,7 @@ const Login = () => {
     const [passwordHidden, setPasswordHidden] = useState(true);
     const {currentUser,setCurrentUser,loggedIn,setLoggedIn,logout} = useAppContext();
     const navigate = useNavigate();
-    console.log(currentUser);
+    // console.log(currentUser);
     const loginForm = useFormik({
         initialValues: {
             name: '',

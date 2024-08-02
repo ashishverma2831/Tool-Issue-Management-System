@@ -1,5 +1,6 @@
 import { createContext, useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { enqueueSnackbar } from "notistack";
 
 const AppContext = createContext();
 
@@ -10,13 +11,14 @@ export const AppProvider = ({children})=>{
         JSON.parse(sessionStorage.getItem('user'))
     )
 
-    const [loggedIn, setLoggedIn] = useState(currentUser!==null)
+    const [loggedIn, setLoggedIn] = useState(currentUser!==null);
 
-    const logout = ()=>{
-        sessionStorage.removeItem("user");
+    const logout = async ()=>{
+        console.log('logging out');
+        await sessionStorage.removeItem("user");
         navigate('/login');
         enqueueSnackbar('Logged out successfully',{variant:'success'})
-        setLoggedIn(false);
+        setLoggedIn(!loggedIn);
     }
 
     return <AppContext.Provider value={{currentUser,setCurrentUser,loggedIn,setLoggedIn,logout}}>
