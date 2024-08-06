@@ -1,12 +1,14 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const dotenv = require('dotenv');
+dotenv.config();
 
 const app = express();
 const port = 3000;
 
 
-mongoose.connect('mongodb+srv://root:root@cluster0.ve2kz8r.mongodb.net/toolissuemanagement?retryWrites=true&w=majority')
+mongoose.connect(process.env.MONGO_DB_URI)
 .then((result) => {
     console.log('Mongoose Connected');
 }).catch((err) => {
