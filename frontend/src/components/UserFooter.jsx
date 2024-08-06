@@ -15,7 +15,7 @@ const UserFooter = () => {
               </p>
               {/* <Link to='/about' className='hover:cursor-pointer px-2 text-blue-700'>Read more...</Link> */}
             </div>
-            <div className='p-2 w-2/5 md:w-1/3'>
+            <div className='md:p-2 px-4 w-full md:w-1/3'>
                 <p className='text-lg font-semibold pb-2 md:py-5'>Helpful Links</p>
                 <div>
                   <ul className='flex gap-y-2 flex-wrap'>
@@ -29,12 +29,13 @@ const UserFooter = () => {
                   </ul>
                 </div>
             </div>
-            <div className='p-2 w-2/5 md:w-1/3'>
+            <div className='md:p-2 px-4 w-full md:w-1/3'>
                 <p className='text-lg font-semibold pb-2 md:py-5'>Contact Us</p>
                 <p>Building No-258, Yadav Colony,<br />
                   Rajeev Gandhi Marg, Ballabgarh,<br />
                   Faridabad (Haryana) 121004</p>
-                <p className='py-2'>E-mail: <Link>ashishverma510207@gmail.com</Link></p>
+                <p className='py-2'>E-mail:
+                  <Link>ashishverma510207@gmail.com</Link></p>
                 <div className='flex gap-4'>
                   <Link className='text-3xl text-blue-700'><i className="fa-brands fa-facebook"></i></Link>
                   <Link className='text-3xl text-red-700'><i className="fa-brands fa-youtube"></i></Link>
@@ -42,7 +43,7 @@ const UserFooter = () => {
                 </div>
             </div>
           </div>
-          <div className='text-center py-4'>
+          <div className='text-center px-2 py-4'>
             <p>© Tool Issue Management System, All Rights Reserved, 2024</p>
           </div>
         </div>  

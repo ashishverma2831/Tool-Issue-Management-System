@@ -54,7 +54,7 @@ const IssueRegister = () => {
             <section className='w-full py-10 mx-auto bg-blue-500/50 flex justify-center items-center'>
                 <div className=' flex my-8 flex-col gap-4 bg-blue-200 max-w-screen-xl p-10 shadow-xl rounded'>
                     <h1 className='text-3xl font-bold text-center'>Send Your Issues here</h1>
-                    <form className='w-[360px]' onSubmit={registerIssue.handleSubmit}>
+                    <form className='w-full' onSubmit={registerIssue.handleSubmit}>
                         <div className='w-full flex flex-col gap-1 mb-4'>
                             <label htmlFor='name'>Name</label>
                             <input onChange={registerIssue.handleChange} value={registerIssue.values.name} placeholder='Enter your name' className='p-2 outline-none border-none rounded' type='text' id='name' />

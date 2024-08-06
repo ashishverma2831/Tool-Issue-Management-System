@@ -84,7 +84,7 @@ const Signup = () => {
             <section className='w-full py-10 mx-auto bg-blue-500/50 flex justify-center items-center'>
                 <div className='my-8 flex flex-col gap-4 bg-blue-200 max-w-screen-xl p-10 shadow-xl rounded'>
                     <h1 className='text-3xl font-bold text-center'>Registration</h1>
-                    <form className='w-[360px]' onSubmit={registerForm.handleSubmit}>
+                    <form className='w-full' onSubmit={registerForm.handleSubmit}>
                         <div className='w-full flex flex-col gap-1 mb-4'>
                             <label htmlFor='name'>Name</label>
                             <input id='name'

@@ -7,19 +7,19 @@ const Hero3 = () => {
     const data = [
         {
             image: 'https://www.zomato.com/partner-with-us/static/media/PawanKumar.fb110f23.png',
-            description:'lor sit amet, consectetur adipiscing elit. Sed auctor, nunc eget ultrices posuere, nunc libero ultricies nunc, nec tincidunt nunc turpis nec nunc',
+            description: 'lor sit amet, consectetur adipiscing elit. Sed auctor, nunc eget ultrices posuere, nunc libero ultricies nunc, nec tincidunt nunc turpis nec nunc',
             name: 'Pawan Kumar',
             owner: 'Kumar Mechanic, Dehradun'
         },
         {
             image: 'https://www.zomato.com/partner-with-us/static/media/Tushar.6bc47b8a.png',
-            description:'lor sit amet, consectetur adipiscing elit. Sed auctor, nunc eget ultrices posuere, nunc libero ultricies nunc, nec tincidunt nunc turpis nec nunc',
+            description: 'lor sit amet, consectetur adipiscing elit. Sed auctor, nunc eget ultrices posuere, nunc libero ultricies nunc, nec tincidunt nunc turpis nec nunc',
             name: 'Tushar',
             owner: 'Sharma Tool Shop, Delhi NCR'
         },
         {
             image: 'https://www.zomato.com/partner-with-us/static/media/Jasmeet.7da6a5e1.png',
-            description:'lor sit amet, consectetur adipiscing elit. Sed auctor, nunc eget ultrices posuere, nunc libero ultricies nunc, nec tincidunt nunc turpis nec nunc',
+            description: 'lor sit amet, consectetur adipiscing elit. Sed auctor, nunc eget ultrices posuere, nunc libero ultricies nunc, nec tincidunt nunc turpis nec nunc',
             name: 'Jasmeet Singh',
             owner: 'Tool Techtonic, Udaipur'
         }
@@ -77,11 +77,13 @@ const Hero3 = () => {
                     >
 
                         {
-                            data.map((card,index) => {
+                            data.map((card, index) => {
                                 return (
                                     <div key={index} className='w-full rounded-lg mx-auto flex gap-2'>
-                                        <div className='img-quotation flex justify-end place-items-end w-[160px]'>
-                                            <img className=' bg-contain w-32 h-32 rounded-lg' src={card.image} />
+                                        <div className='hidden md:block'>
+                                            <div className='img-quotation flex justify-end place-items-end w-[160px]'>
+                                                <img className='bg-contain w-32 h-32 rounded-lg' src={card.image} />
+                                            </div>
                                         </div>
                                         <div className=' flex flex-col gap-2 p-4 flex-1'>
                                             <p className='text-2xl font-semibold'></p>

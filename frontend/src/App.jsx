@@ -13,6 +13,8 @@ import IssueRegister from './pages/IssueRegister'
 import ViewIssues from './admin/ViewIssues'
 import BrowseTools from './pages/BrowseTools'
 import UserAddTool from './pages/UserAddTool'
+import ToolInventory from './pages/ToolInventory'
+import ErrorPage from './pages/ErrorPage'
 
 const App = () => {
 
@@ -33,6 +35,8 @@ const App = () => {
               <Route path="/register-issue" element={<IssueRegister />} />
               <Route path="/view-issues" element={<ViewIssues />} />
               <Route path="/browse-tools" element={<BrowseTools />} />
+              <Route path="/tool-inventory" element={<ToolInventory />} />
+              <Route path="*" element={<ErrorPage />} />
             </Routes>
           </AppProvider>
         </BrowserRouter>
